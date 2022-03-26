@@ -7,17 +7,25 @@ public class lucky extends JFrame {
     public lucky() {
         // draw the window which generates the random number
         setTitle("Lucky Number");
-        setSize(300, 200);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setSize(500, 200);
+        // center the window
         setLocationRelativeTo(null);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLayout(new FlowLayout());
         setVisible(true);
         JButton button = new JButton("Click to get a lucky number");
         add(button);
-        JLabel label = new JLabel("Your lucky number is: ");
-        add(label);
-        JTextField text = new JTextField(10);
+        JTextField text = new JTextField(15);
         add(text);
+        // center the button
+        // button.setHorizontalAlignment(JButton.CENTER);
+        button.setVerticalAlignment(JButton.CENTER);
+        button.setFont(new Font("Arial", Font.BOLD, 20));
+        button.setBackground(Color.BLUE);
+        button.setForeground(Color.WHITE);
+        button.setOpaque(true);
+        button.setBorderPainted(false);
+
         button.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 // generate the random number
