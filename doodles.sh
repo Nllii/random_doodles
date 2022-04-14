@@ -1,6 +1,7 @@
 # ask the user for type of doodle
 echo "What project do you want to see?"
 echo "1. lucky number"
+echo "2. Get me a fucking password!"
 
 
 read choice
