@@ -61,10 +61,34 @@ string funpass(string password) {
                 break;
         }
     }
+    // add special characters to the end of the password
+    char specialCharacters[] = {'!', '@', '#', '$', '%', '^', '&', '*'};
+    for (char i = 0; i < sizeof(specialCharacters); i++) {
+        // add special characters to the beginning of the password
+        getPassword.insert(0, 1, specialCharacters[i]);
+        // add special characters to the end of the password
+        getPassword.insert(getPassword.length(), 1, specialCharacters[i]);
+
+        // getPassword += specialCharacters[i];
+        
+    }
+    
     return getPassword;
+    
+    // for (int i = 0; i < 5; i++) {
+    //     // for each length of of the password get special characters and insert random characters.
+    //     getPassword += specialCharacters[rand() % 29];
+
+
+        
+    //     getPassword.insert(getPassword.length() - 1, 1, specialCharacters[rand() % 29]);
+
+    //     // specialCharacters[i] = specialCharacters[rand() % 29];
+    //     // getPassword += specialCharacters;
+    // }
+    // return getPassword;
+    
 }
-
-
 
 int main(int argc, char *argv[]) {
     // ask user for password
@@ -75,6 +99,5 @@ int main(int argc, char *argv[]) {
     // string password = "LOVERAasdLERD";
     string getPassword = funpass(password);
     cout << "Password: " << getPassword << endl;
-    cout << "Hash: " << getPassword << endl;
     return 0;
 }
