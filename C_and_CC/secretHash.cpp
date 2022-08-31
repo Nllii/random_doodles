@@ -6,6 +6,10 @@
 
 using namespace std;
 
+
+
+
+
 // create a hash function with special characters, upper and lower case letters, and numbers
 string funpass(string password) {
     string getPassword = "";
@@ -61,43 +65,77 @@ string funpass(string password) {
                 break;
         }
     }
-    // add special characters to the end of the password
-    char specialCharacters[] = {'!', '@', '#', '$', '%', '^', '&', '*'};
-    for (char i = 0; i < sizeof(specialCharacters); i++) {
-        // add special characters to the beginning of the password
-        getPassword.insert(0, 1, specialCharacters[i]);
-        // add special characters to the end of the password
-        getPassword.insert(getPassword.length(), 1, specialCharacters[i]);
-
-        // getPassword += specialCharacters[i];
-        
-    }
     
     return getPassword;
-    
-    // for (int i = 0; i < 5; i++) {
-    //     // for each length of of the password get special characters and insert random characters.
-    //     getPassword += specialCharacters[rand() % 29];
 
-
-        
-    //     getPassword.insert(getPassword.length() - 1, 1, specialCharacters[rand() % 29]);
-
-    //     // specialCharacters[i] = specialCharacters[rand() % 29];
-    //     // getPassword += specialCharacters;
-    // }
-    // return getPassword;
-    
 }
 
-int main(int argc, char *argv[]) {
-    // ask user for password
+
+string stringToHex(string input)
+{
+    static const char* const lut = "0123456789ABCDEF";
+    size_t len = input.length();
+
+    string output;
+    output.reserve(2 * len);
+    for (size_t i = 0; i < len; ++i)
+    {
+        const unsigned char c = input[i];
+        output.push_back(lut[c >> 4]);
+        output.push_back(lut[c & 15]);
+    }
+    return output;
+
+}
+// Function to generate a random string of length n
+string generateRandomString(int n)
+{
+    string AlphaNumeric = "0123456789"
+                          "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+                          "abcdefghijklmnopqrstuvwxyz";
+
+    // String to hold the result
+    string res;
+
+    for (int i = 0; i < n; i++)
+        res = res + AlphaNumeric[rand() % AlphaNumeric.size()];
+
+    return res;
+}
+
+void combinepassword() {
+    string password = "password";
+    password.push_back('1');
+    password.push_back('2');
+    password.push_back('3');
+
+    string hash = "hash";
+    string hashpassword = password + hash;
+    cout << hashpassword << endl;
+}
+
+
+
+
+int main(){
     string password;
     cout << "Enter a password: ";
     cin >> password;
+    string generated_password = funpass(password);
+    generated_password.push_back('!');
+    generated_password.push_back('@');
+    generated_password.push_back('A');
+    generated_password.push_back('B');
 
-    // string password = "LOVERAasdLERD";
-    string getPassword = funpass(password);
-    cout << "Password: " << getPassword << endl;
+    cout << "Your password is: " << generated_password << endl;
+
+    // cout << "Your hashed password is: " << funpass(password) << endl;
+    // combinepassword();
+    // cout << "Your password is: " << password << endl;
+    // cout << "Your random password is: " << generateRandomString(10) << endl;
+    // cout << "Your random password in hex is: " << stringToHex(generateRandomString(1)) << endl;
     return 0;
+
+
+
 }
