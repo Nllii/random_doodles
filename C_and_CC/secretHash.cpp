@@ -4,29 +4,77 @@
 #include <ctime>
 #include <chrono>
 
+using namespace std;
 
-void secretHash() {
-    std::string password;
-    std::cout << "Enter password: ";
-    std::cin >> password;
-    std::cout << std::endl;
+// create a hash function with special characters, upper and lower case letters, and numbers
+string funpass(string password) {
+    string getPassword = "";
     for (int i = 0; i < password.length(); i++) {
-        password[i] = std::toupper(password[i]);
+        switch (password[i]) {
+            case 'a':
+                getPassword += "4";
+                break;
+            case 'e':
+                getPassword += "3";
+                break;
+            case 'i':
+                getPassword += "1";
+                break;
+            case 'o':
+                getPassword += "0";
+                break;
+            case 's':
+                getPassword += "5";
+                break;
+            case 'A':
+                getPassword += "4";
+                break;
+            case 'E':
+                getPassword += "3";
+                break;
+            case 'I':
+                getPassword += "1";
+                break;
+            case 'O':
+                getPassword += "0";
+                break;
+            case 'S':
+                getPassword += "5";
+                break;
+            case '0':
+                getPassword += "o";
+                break;
+            case '1':
+                getPassword += "i";
+                break;
+            case '3':
+                getPassword += "e";
+                break;
+            case '4':
+                getPassword += "a";
+                break;
+            case '5':
+                getPassword += "s";
+                break;
+            default:
+                getPassword += password[i];
+                break;
+        }
     }
-    std::cout << "Password: " << password << std::endl;
-    std::cout << "Hash: ";
-    for (int i = 0; i < password.length(); i++) {
-        std::cout << std::hex << std::setw(2) << std::setfill('0') << (int)password[i];
-    }
-    std::cout << std::endl;
+    return getPassword;
 }
 
 
 
-int main(){
-    std::cout << "Secret Hash" << std::endl;
-    std::cout << "-----------" << std::endl;
-    secretHash();
-    return 0;
+int main(int argc, char *argv[]) {
+    // ask user for password
+    string password;
+    cout << "Enter a password: ";
+    cin >> password;
 
+    // string password = "LOVERAasdLERD";
+    string getPassword = funpass(password);
+    cout << "Password: " << getPassword << endl;
+    cout << "Hash: " << getPassword << endl;
+    return 0;
 }
