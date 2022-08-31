@@ -1,5 +1,4 @@
 c_outputs
 .vscode
-random_doodles/C_and_CC/*.c.out
-random_doodles/C_and_CC/*.cc
-random_doodles/C_and_CC/*.cpp
+C_and_CC/*.out
+C_and_CC/*.o
