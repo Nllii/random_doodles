@@ -1,2 +1,5 @@
 c_outputs
-..vscode
+.vscode
+random_doodles/C_and_CC/*.c.out
+random_doodles/C_and_CC/*.cc
+random_doodles/C_and_CC/*.cpp
