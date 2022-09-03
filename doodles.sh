@@ -13,7 +13,6 @@ case $run in
 esac
 
 function getfile() {
-    # echo "Working...."
     for dir in `ls -d */`
     do
     # echo $dir

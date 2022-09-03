@@ -6,10 +6,6 @@
 
 using namespace std;
 
-
-
-
-
 // create a hash function with special characters, upper and lower case letters, and numbers
 string funpass(string password) {
     string getPassword = "";
